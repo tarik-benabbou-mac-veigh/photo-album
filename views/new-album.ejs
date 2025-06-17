@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/head')%>
+    </head>
+    <body>
+        <%- include('partials/nav')%>
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col">
+                    <h1>New album</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <form method="post" action="/albums/create">
+                        <div class="form-group">
+                            <label>Add your title</label>
+                            <input class="form-control mt-2" type="text" name="albumTitle" placeholder="Album title" autofocus>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%- include('partials/script')%>
+    </body>
+</html>
