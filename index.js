@@ -1,6 +1,8 @@
 // VARIABLES :
 const express = require('express');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const flash = require('connect-flash');
 const path = require('path');
 const port = 8080;
 const app = express();
@@ -14,6 +16,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(express.static('public'));
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+}));
+app.use(flash());
 
 // CONNECTION WITH THE DATA BASE :
 mongoose.connect('mongodb://localhost/album-archive');

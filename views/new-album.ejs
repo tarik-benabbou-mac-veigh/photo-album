@@ -18,6 +18,9 @@
                             <label>Add your title</label>
                             <input class="form-control mt-2" type="text" name="albumTitle" placeholder="Album title" autofocus>
                         </div>
+                        <% if(errors.length){%>
+                            <div class="alert alert-danger mt-3" role="alert"><%= errors[0] %></div>
+                        <% }%>
                         <button type="submit" class="btn btn-primary mt-3">Create</button>
                     </form>
                 </div>
